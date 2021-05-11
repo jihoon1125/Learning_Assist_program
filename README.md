@@ -23,9 +23,9 @@
 
 * \db\server\server.js 의 Line20~ 에서 MySQL school Database 생성 후 비밀번호 등 설정 변경
 
-* school Database에 테이블 생성 (\create-table.sql) 파일 참조
+* school Database에 테이블 생성 ([\create-table.sql](https://github.com/jihoon1125/Learning_Assist_program/blob/main/create-table.sql)) 파일 참조
 
-* 테이블에 데이터 삽입 (\insert.sql) 파일 참조
+* 테이블에 데이터 삽입 ([\insert.sql](https://github.com/jihoon1125/Learning_Assist_program/blob/main/insert.sql)) 파일 참조
 
 
 
