@@ -31,7 +31,7 @@
 
 ----------
 ## DATABASE
-### Table
+
 + **STUDENT Table**
 
 ![11](https://user-images.githubusercontent.com/59654033/117769840-2feb5d00-b26f-11eb-8cf3-02f17fc78994.PNG)
