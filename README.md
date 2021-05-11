@@ -25,6 +25,8 @@
 
 * school Database에 테이블 생성 (\create-table.sql) 파일 참조
 
+* 테이블에 데이터 삽입 (\insert.sql) 파일 참조
+
 
 
 ----------
