@@ -90,7 +90,7 @@ ___
 
 ![image](https://user-images.githubusercontent.com/59654033/117772404-1992d080-b272-11eb-9fc8-4e5f3d10a6bb.png)
 
-  + 시간표가 중복되는 경우 아래와 같이 중복되지 않은 시간표들만 신청됨
+> 시간표가 중복되는 경우 아래와 같이 중복되지 않은 시간표들만 신청됨
 
 ![image](https://user-images.githubusercontent.com/59654033/117772508-39c28f80-b272-11eb-8358-b1cd16c8699d.png)
 
