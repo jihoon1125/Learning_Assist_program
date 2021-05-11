@@ -74,7 +74,7 @@ ___
 ___
 #### 개인정보 조회
 
-![image](https://user-images.githubusercontent.com/59654033/117781319-79da4000-b27b-11eb-9f0d-dd8d228239a2.png)
+![image](https://user-images.githubusercontent.com/59654033/117781494-aee69280-b27b-11eb-974d-bac9fab77ec5.png)
 
 > 시간표 페이지에서 [개인정보조회] 클릭 후 비밀번호를 제외한 정보 조회
 
