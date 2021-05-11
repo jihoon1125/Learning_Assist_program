@@ -23,7 +23,7 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     database: 'school',
-    password: 'vmfkdlsgo1'
+    password: 'YOUR PASSWORD'
 });
 
 /* 회원가입 홈페이지 접속 */
