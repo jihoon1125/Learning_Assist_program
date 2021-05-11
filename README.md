@@ -3,7 +3,7 @@
 
 학사정보관리 시스템으로 기존의 [캠퍼스 시스템](https://klas.kw.ac.kr/)과 유사한 웹 애플리케이션을 개발한다. 회원가입, 로그인, 비밀번호 변경, 개인정보 조회, 수강과목 시간표 조회, 과목 수강신청, 수강/성적 조회, 친구와 시간표 공유의 기능을 구현한다. MySQL, Node.js, React, Express의 기능을 사용한다.
 
----
+------------
 ## DATABASE
 ### Table
 + **STUDENT Table**
@@ -32,6 +32,49 @@
 
 ![image](https://user-images.githubusercontent.com/59654033/117770697-3201eb80-b270-11eb-81ff-1391c38bd780.png)
 ![image](https://user-images.githubusercontent.com/59654033/117770711-37f7cc80-b270-11eb-8f34-5d02a1063583.png)
+
+필수 정보 미입력 및 중복 ID로 회원가입 시도 시 Error Alert, 회원 가입 성공 시 로그인 페이지로 이동
+___
++ **로그인**
+
+![image](https://user-images.githubusercontent.com/59654033/117771063-ab014300-b270-11eb-9521-fdb0b9c52f67.png)
+
+로그인 실패 시 Error Alert, 로그인 성공 시 시간표 조회 페이지로 이동
+___
++ **비밀번호 변경**
+
+![image](https://user-images.githubusercontent.com/59654033/117771150-c3715d80-b270-11eb-9f77-e247c2a00e60.png)
+
+비밀번호 변경 완료 시 로그인 페이지로 이동 후 로그인 요구
+
+___
++ **개인정보 조회**
+
+![image](https://user-images.githubusercontent.com/59654033/117772061-bd2fb100-b271-11eb-8acd-fe7179638773.png)
+
+시간표 페이지에서 [개인정보조회] 클릭 후 비밀번호를 제외한 정보 조회
+
+___
++ **시간표 조회**
+
+![image](https://user-images.githubusercontent.com/59654033/117772114-cc166380-b271-11eb-80d9-10390fe35d20.png)
+
+DB에서 개인 수강 과목 정보를 가져온 후 시간표 출력
+
+___
++ **수강신청**
+
+![image](https://user-images.githubusercontent.com/59654033/117772404-1992d080-b272-11eb-9fc8-4e5f3d10a6bb.png)
+
+시간표가 중복되는 경우 아래와 같이 중복되지 않은 시간표들만 신청됨
+
+![image](https://user-images.githubusercontent.com/59654033/117772508-39c28f80-b272-11eb-8358-b1cd16c8699d.png)
+
+1. 과목 검색 시 해당하는 과목의 정보가 검색결과에 조회됨
+2. 신청 버튼을 누르면 신청목록에 과목이 담기며 삭제 또한 가능
+3. 수강신청 완료는 저장 버튼을 통해 가능
+
+
 
 
 
