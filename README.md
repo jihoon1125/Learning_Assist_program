@@ -52,20 +52,20 @@
 
 ---
 ## OPTIONS
-#### 회원가입
+### 회원가입
 
 ![image](https://user-images.githubusercontent.com/59654033/117770697-3201eb80-b270-11eb-81ff-1391c38bd780.png)
 ![image](https://user-images.githubusercontent.com/59654033/117770711-37f7cc80-b270-11eb-8f34-5d02a1063583.png)
 
 > 필수 정보 미입력 및 중복 ID로 회원가입 시도 시 Error Alert, 회원 가입 성공 시 로그인 페이지로 이동
 ___
-#### 로그인
+### 로그인
 
 ![image](https://user-images.githubusercontent.com/59654033/117771063-ab014300-b270-11eb-9521-fdb0b9c52f67.png)
 
 > 로그인 실패 시 Error Alert, 로그인 성공 시 시간표 조회 페이지로 이동
 ___
-#### 비밀번호 변경
+### 비밀번호 변경
 
 ![image](https://user-images.githubusercontent.com/59654033/117781985-2d433480-b27c-11eb-9f6a-659891f0ada5.png)
 
@@ -79,14 +79,14 @@ ___
 > 시간표 페이지에서 [개인정보조회] 클릭 후 비밀번호를 제외한 정보 조회
 
 ___
-#### 수강과목 시간표 조회
+### 수강과목 시간표 조회
 
 ![image](https://user-images.githubusercontent.com/59654033/117772114-cc166380-b271-11eb-80d9-10390fe35d20.png)
 
 > DB에서 개인 수강 과목 정보를 가져온 후 시간표 출력
 
 ___
-#### 과목 수강신청
+### 과목 수강신청
 
 ![image](https://user-images.githubusercontent.com/59654033/117772404-1992d080-b272-11eb-9fc8-4e5f3d10a6bb.png)
 
@@ -101,7 +101,7 @@ ___
 > 수강신청 완료는 저장 버튼을 통해 가능
 
 ___
-#### 수강 및 성적 조회
+### 수강 및 성적 조회
 
 ![image](https://user-images.githubusercontent.com/59654033/117772949-b190ba00-b272-11eb-879d-32f17cb9a436.png)
 
@@ -114,7 +114,7 @@ ___
 > 이번 학기 성적 조회 가능
 
 ___
-#### 친구와 시간표 공유하기
+### 친구와 시간표 공유하기
 
 ![image](https://user-images.githubusercontent.com/59654033/117773080-ddac3b00-b272-11eb-859d-60ade3248280.png)
 
