@@ -3,7 +3,13 @@
 
 학사정보관리 시스템으로 기존의 [캠퍼스 시스템](https://klas.kw.ac.kr/)과 유사한 웹 애플리케이션을 개발한다. 회원가입, 로그인, 비밀번호 변경, 개인정보 조회, 수강과목 시간표 조회, 과목 수강신청, 수강/성적 조회, 친구와 시간표 공유의 기능을 구현한다. MySQL, Node.js, React, Express의 기능을 사용한다.
 
-------------
+-----------
+## USAGE
+git clone https://github.com/jihoon1125/Learning_Assist_program.git
+cd Learning_Assist_program
+
+
+----------
 ## DATABASE
 ### Table
 + **STUDENT Table**
