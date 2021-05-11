@@ -52,7 +52,7 @@
 
 ---
 ## OPTIONS
-+ **##회원가입**
+### 회원가입
 
 ![image](https://user-images.githubusercontent.com/59654033/117770697-3201eb80-b270-11eb-81ff-1391c38bd780.png)
 ![image](https://user-images.githubusercontent.com/59654033/117770711-37f7cc80-b270-11eb-8f34-5d02a1063583.png)
