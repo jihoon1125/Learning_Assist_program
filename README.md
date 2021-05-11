@@ -2,7 +2,7 @@
 ## 학사정보관리 프로그램
 
 학사정보관리 시스템으로 기존의 [캠퍼스 시스템](https://klas.kw.ac.kr/)과 유사한 웹 애플리케이션을 개발한다. 
-  1. [회원가입](#1.-회원가입) 
+  * [회원가입](#회원가입) 
   * 로그인 
   * 비밀번호 변경 
   * 개인정보 조회 
@@ -53,8 +53,6 @@
 ---
 ## OPTIONS
 + **회원가입**
-
-### 1. 회원가입
 
 ![image](https://user-images.githubusercontent.com/59654033/117770697-3201eb80-b270-11eb-81ff-1391c38bd780.png)
 ![image](https://user-images.githubusercontent.com/59654033/117770711-37f7cc80-b270-11eb-8f34-5d02a1063583.png)
