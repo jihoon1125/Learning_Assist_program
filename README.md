@@ -67,7 +67,7 @@ ___
 ___
 #### 비밀번호 변경
 
-![image](https://user-images.githubusercontent.com/59654033/117771150-c3715d80-b270-11eb-9f77-e247c2a00e60.png)
+![image](https://user-images.githubusercontent.com/59654033/117781786-f40ac480-b27b-11eb-86bb-1763e87f3fbc.png)
 
 > 비밀번호 변경 완료 시 로그인 페이지로 이동 후 로그인 요구
 
