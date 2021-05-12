@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import App from './App'
+import { withRouter } from "react-router-dom";
 const axios = require('axios');
 
 class JoinForm extends Component {
@@ -92,8 +93,7 @@ class JoinForm extends Component {
                                 
                     }
 
-render() {
-    if(this.state.success === 0){
+render() {    
     return (        
         <div className="joinForm">
             <h1 className= "Header">  회 원 가 입 </h1>
@@ -211,23 +211,17 @@ render() {
            
             <br/>            
             <div className = "Join2">
-            <button type="submit" onClick={this.handleSubmit}>가입하기</button> &nbsp;&nbsp; <button type="submit" onClick={this.handleGoback}>뒤로가기</button>  
+            <button type="submit" onClick={this.handleSubmit} className="btn2">가입하기</button> &nbsp;&nbsp; <button type="submit" onClick={this.props.history.goBack} className="btn2">뒤로가기</button>  
             <br/> <br/><br/>                 
             </div>    
        </div>
     );
-    }
-
-    else{
-        return(
-            <App></App>
-        );
-    }
+    }    
 }
 
 
-}
 
-export default JoinForm;
+
+export default withRouter(JoinForm);
 
      
