@@ -5,7 +5,7 @@ import ViewGrade from './ViewGrade';
 import Enroll from './enroll';
 import './App.css';
 //import { Switch } from 'antd';
-import { withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Mypage from './Mypage';
 const axios = require('axios');
 class Viewfriend extends Component{
@@ -152,10 +152,13 @@ class Viewfriend extends Component{
           }
         }
         console.log(array);
-        var n = null;      
+        var n = null;
       
+      if(this.state.goPage === 0){
         return(
-          <div className="box2">            
+          <div className="box2">
+
+            
             <h1 className='Header' align="center"> 친구는 어떤 수업을 듣고 있을까? </h1>
             <br /><br />
             <input className = "Box"
@@ -231,14 +234,26 @@ class Viewfriend extends Component{
                 </tbody>
               </table>
               <br /><br />
-              <button onClick={this.props.history.goBack} className="btn2">뒤로가기</button>
+              <button onClick={this.handleSubmit2} className="btn2">뒤로가기</button>
                 
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
         );
       }
 
-    
+
+      
+      else{
+          return(
+            <Mypage SID={this.props.SID}></Mypage>
+          );
+      }
+
+     
+
+
+
+    }
 }
 
-export default withRouter(Viewfriend);
+export default Viewfriend;

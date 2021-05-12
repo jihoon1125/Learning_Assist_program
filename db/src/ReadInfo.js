@@ -2,7 +2,8 @@ import { logDOM } from '@testing-library/react';
 import { urlencoded } from 'body-parser';
 import React, { Component } from 'react';
 import './App.css';
-import { withRouter } from "react-router-dom";
+//import { Switch } from 'antd';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Mypage from './Mypage';
 const axios = require('axios');
 class ReadInfo extends Component{
@@ -44,7 +45,8 @@ class ReadInfo extends Component{
         });
       }.bind(this));
   }
-  render(){    
+  render(){
+    if(this.state.goPage === 0){
         return(
             <div align='center'>  
 
@@ -91,15 +93,22 @@ class ReadInfo extends Component{
                 </tbody>
                 </table>
 	            <div>
-                    <button className='btn3' type="submit" onClick={this.props.history.goBack}>뒤로가기</button> 
+                    <button className='btn3' type="submit" onClick={this.handleSubmit2}>뒤로가기</button> 
                     <br/> <br/><br/>                 
                 </div>   
             </div>
  
             
-        );    
-    
+        );
+    }
+    else{
+        return(
+        <div>
+          <Mypage SID={this.props.SID}></Mypage>
+        </div>
+        );
+      }
   }
 }
 
-export default withRouter(ReadInfo);
+export default ReadInfo;

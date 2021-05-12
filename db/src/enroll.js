@@ -4,12 +4,9 @@ import Busket from './busket'
 import Search_results from './search_results'
 import './App.css'
 import Mypage from './Mypage';
-import { withRouter } from "react-router-dom";
-
 const axios = require('axios');
 class Enroll extends Component {
    
-
     state = {
         req_count: 0,
         goPage: 0,
@@ -97,7 +94,8 @@ class Enroll extends Component {
         const {information} = this.state;
         const {req_info} = this.state;    
        
-        /*쿼리해온거 state에 저장 */        
+        /*쿼리해온거 state에 저장 */
+        if(this.state.goPage==0){
         return (     
             <div className="enroll">
               <h1 className= "Header">수강신청</h1>
@@ -140,15 +138,22 @@ class Enroll extends Component {
                </table>
 
                <Busket data={req_info} onRemove={this.handleRemove}/>
-               <button type="submit" className="btn2" onClick={this.handleSubmit}>저장</button> &nbsp;&nbsp; <button type="submit" className="btn2" onClick={this.props.history.goBack}>나가기</button>
+               <button type="submit" className="btn2" onClick={this.handleSubmit}>저장</button> &nbsp;&nbsp; <button type="submit" className="btn2" onClick={this.handleGoback}>나가기</button>
                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
            
              </div>
-        );    
+        );
+        }
+
+        else{
+          return(
+            <Mypage SID={this.props.SID}></Mypage>
+          )
+        }
     }
     
     
 
 }
 
-export default withRouter(Enroll);
+export default Enroll;

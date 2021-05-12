@@ -1,41 +1,32 @@
 //import responsiveObserve from 'antd/lib/_util/responsiveObserve';
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import './App.css';
 import Mypage from './Mypage';
-import Home from './Home';
 import JoinForm from './joinForm';
-import Changepasswd from './changepasswd';
-import ReadInfo from './ReadInfo';
-import Enroll from './enroll';
-import Viewfriend from './viewfriend';
-import Notice from './notice';
-import ViewGrade from './ViewGrade';
-
 const axios = require('axios');
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state={     
+    this.state={
+      loginRs: null,
       username: null,
-      password: null,      
-      friendname: null,
-      sel_course: null,
+      password: null,
+      success: 0,
       SID: '',
    
     }
-    this.SIDChange = this.SIDChange.bind(this)  
-    this.pwChange = this.pwChange.bind(this)  
-    this.courseChange = this.courseChange.bind(this)  
+    this.idChange = this.idChange.bind(this)
+    this.pwChange = this.pwChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  SIDChange = (sid) => {
+  
+  idChange = (e) => {
     this.setState({
-      SID : sid
+      username : e.target.value
     })
   }
-  
 
   pwChange = (e) => {
     this.setState({
@@ -43,29 +34,79 @@ class App extends Component {
     })
   }
 
-  courseChange = (course) => {
-    this.setState({
-      sel_course : course
-    })
+  handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("/isLogin", {username: this.state.username, password: this.state.password}
+      ).then(function(response){
+        console.log(response.data.rs);
+        this.setState({
+          success: response.data.rs
+        });
+
+        if(this.state.success===0)
+        alert("학번이 존재하지 않거나 비밀번호가 틀렸습니다");
+      }.bind(this));
+
+      
   }
+
+
+  handleJoin = (e) => {
+     e.preventDefault();
+    this.setState({success: 2});
+  }
+
   
   render(){
-          return( 
-        <Router>  
-            <Route path="/" exact render={() => <Home SIDChange={this.SIDChange} />}/>
-            <Route path="/newacc"  component={JoinForm}/>
-            <Route path="/Mypage"  render={() => <Mypage SID={this.state.SID} courseChange ={this.courseChange} />} />
-            <Route path="/viewGrade"  render={() => <ViewGrade SID={this.state.SID} />} />
-            <Route path="/enroll"  render={() => <Enroll SID={this.state.SID} />} />
-            <Route path="/watch"  render={() => <Viewfriend SID={this.state.SID} />} />
-            <Route path="/changepw" render={() => <Changepasswd SID={this.state.SID} />} />
-            <Route path="/seemine"  render={() => <ReadInfo SID={this.state.SID} />} />
-            <Route path="/notice" render={() => <Notice C_name={this.state.sel_course} />} />
-            
-      </Router> 
+    console.log('success');
+    console.log(this.state.success); 
+    
+    if(this.state.success === 0){     
+
+      return( 
+          
+          <div style={{display:'flex', flexDirection: 'column'}} 
+             onSubmit={this.handleSubmit} className="loginForm">
+            <h1>로그인</h1>
+            <br/>
+            <div class="idForm">
+              <input type="text" className="id" placeholder="학번"
+               onChange={this.idChange} name = "username"></input>
+            </div>
+            <div class="passForm">
+              <input type="password" className="pw" placeholder="비밀번호"
+                onChange={this.pwChange} name="password"></input>
+            </div>
+            <h1>
+              <button type="submit" className="btn" onClick={this.handleSubmit}>로그인</button>
+            </h1>
+            아직 회원이 아니신가요?
+            <br/> 
+            <div>
+              <button type="submit" className="btn" onClick={this.handleJoin}>회원가입</button>
+            </div>
+          </div>
+
           
       );
-   
+    }
+    else if(this.state.success === 1){
+      return(
+        <div>
+          <Mypage SID={this.state.username}>
+          </Mypage>
+        </div>
+      );
+    }
+
+    else{
+      return(
+        <div>
+          <JoinForm>
+          </JoinForm>
+        </div>
+      );
+    }
   }
 }
 export default App;
