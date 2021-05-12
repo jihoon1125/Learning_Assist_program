@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 import './App.css';
 
 class Gradeinfo extends Component{
@@ -7,13 +8,13 @@ class Gradeinfo extends Component{
         this.state={
           goPage:0,
         }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }   
 
-    handleSubmit = (e) => {
-        
-        console.log("ㅄ");
-        this.props.handlesubmit(this.props.C_name);
-        
+    handleSubmit = (e) => {      
+        this.props.handlesubmit(this.props.C_name);       
+        this.props.history.push("/notice");
       }
 
     render(){
@@ -67,4 +68,4 @@ class Gradeinfo extends Component{
     }
 }
 
-export default Gradeinfo;
+export default withRouter(Gradeinfo);

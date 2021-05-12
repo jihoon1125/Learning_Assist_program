@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 import './App.css';
 
 class Notice extends Component{
@@ -36,7 +37,7 @@ cellPadding="0" cellSpacing="0" width="1000px" >
   </table>
 
   <br/><br/><br/><br/>
-  <button onClick={this.props.Goback} className="btn3">뒤로가기</button>
+  <button onClick={this.props.history.goBack} className="btn3">뒤로가기</button>
         
         </div>
       
@@ -45,4 +46,4 @@ cellPadding="0" cellSpacing="0" width="1000px" >
 
 }
 
-export default Notice;
+export default withRouter(Notice);
