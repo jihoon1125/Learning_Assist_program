@@ -10,8 +10,7 @@ import './App.css';
 import ReadInfo from './ReadInfo';
 import Notice from './notice';
 import Gradeinfo from './gradeinfo';
-//import { Switch } from 'antd';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 const axios = require('axios');
 class Mypage extends Component{
   constructor(props){
@@ -27,10 +26,11 @@ class Mypage extends Component{
       sel_course: '',
     }
     
+    this.handlesubmit = this.handlesubmit.bind(this);
   }
   componentDidMount = () => {
     //마이페이지
-   // e.preventDefault();
+    console.log(this.props.SID);
     axios.post('/Mypage', {id: this.props.SID}
       ).then(function(response){
         this.setState({
@@ -52,72 +52,20 @@ class Mypage extends Component{
       }
       }.bind(this));
     }
-    handleSubmit1 = (e) => {
-      e.preventDefault();
-      this.setState({
-        goPage: 1 // 수강신청
-      })
-    }
-    handleSubmit2 = (e) => {
-      e.preventDefault();
-      this.setState({
-        goPage: 2 // 
-      })
-    }
-
-    handleSubmit3 = (e) => {
-      e.preventDefault();
-      this.setState({
-        goPage: 3 // 
-      })
-    }
-
-    handleSubmit4 = (e) => {
-      console.log("hh");
-      e.preventDefault();
-      this.setState({
-        goPage: 4 // 
-      })
-    }
-
-    handleSubmit5 = (e) => {
-      console.log("qq");
-      e.preventDefault();
-      this.setState({
-        goPage: 5 // 
-      })
-    }
-
-    handleSubmit6 = (e) => {
-      console.log("aa");
-      //e.preventDefault();
-      this.setState({
-        goPage: 6 // 
-      })
-    }
-    handleSubmit7 = (course) => {
-      console.log("ㅄ");
-      this.setState({
-        sel_course: course,
-        goPage: 7 // 
-      })
-    }
-    handleBack = (e) => {
-      console.log("ㅄ");
-      e.preventDefault();
-      this.setState({        
-        goPage: 0 // 
-      })
+    
+    handlesubmit = (e) => {
+      this.props.courseChange(e);
     }
   
     render(){
       console.log('Mypage render');
-      console.log(this.state.goPage);
+      
       var list=[];
       const list1 = this.state.course;
       for(var b = 0; b < this.state.cnt; ++b){
-        list[b] = <Gradeinfo C_name={list1[b]} Grade={list1} notice = {true} handlesubmit={this.handleSubmit7}></Gradeinfo>
+        list[b] = <Gradeinfo C_name={list1[b]} Grade={list1} notice = {true} handlesubmit={this.handlesubmit} history ={this.props.history}></Gradeinfo>
       }
+      
       var array = [
         ['#f2d8d8', null], ['#fbabab', null], ['#f7dda0', null], ['#deef70', null], ['#a3ee5c', null],
         ['#f7dda0', null], ['#deef70', null], ['#f2d8d8', null], ['#fbabab', null], ['#a3ee5c', null],
@@ -195,10 +143,9 @@ class Mypage extends Component{
       }
      
       var n = null;
-      
-      if(this.state.goPage === 0){
+     
         return(
-          <form action='/Mypage' onSubmit={this.handleSubmit2} className='box2'>
+          <form className='box2'>
             
             <h1 className='Header' align="center">{this.state.name} 님의 시간표</h1>
             
@@ -273,60 +220,21 @@ class Mypage extends Component{
               </div>
 
               <br /><br /> <br /><br />
-              <button className='btn3' onClick={this.handleSubmit1}>수강 신청</button><br/><br/>  <button className='btn3' onClick={this.handleSubmit2}>성적조회</button>
+              <button className='btn3' onClick={() => {this.props.history.push("/enroll")}}>수강 신청</button> 
               <br/><br/>
-              <button className='btn3' onClick={this.handleSubmit3}>친구 시간표 구경하기</button>
+              <button className='btn3' onClick={() => {this.props.history.push("/viewGrade")}}>성적 조회하기</button>
               <br/><br/>
-              <button className='btn3' onClick={this.handleSubmit4}>비밀번호 변경하기</button>
+              <button className='btn3' onClick={() => {this.props.history.push("/watch")}}>친구 시간표 구경하기</button>
               <br/><br/>
-              <button className='btn3' onClick={this.handleSubmit6}>개인정보조회</button>             
+              <button className='btn3' onClick={() => {this.props.history.push("/changepw")}}>비밀번호 변경하기</button>
               <br/><br/>
-              <button className='btn3' onClick={this.handleSubmit5}>로그아웃</button>
+              <button className='btn3' onClick={() => {this.props.history.push("/")}}>로그아웃</button>
+              <br/><br/>
+              <button className='btn3' onClick={()=>{this.props.history.push("/seemine")}}>개인정보조회</button>
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </form>
         );
       }
-
-      
-      else if(this.state.goPage === 1){
-          return(
-            <Enroll SID={this.props.SID}></Enroll>
-          );
-      }
-
-      else if(this.state.goPage ===2){
-        return(
-          <ViewGrade SID={this.props.SID}></ViewGrade>
-        );
-      }
-
-      else if(this.state.goPage ===3){
-        return(
-          <Viewfriend SID={this.props.SID}></Viewfriend>
-        );
-
-      }
-
-      else if(this.state.goPage===4){
-        return(
-          <Changepasswd SID={this.props.SID}></Changepasswd>
-        );
-      }
-
-      else if(this.state.goPage===5){
-        return(
-          <App/>
-        );
-      }
-      else if(this.state.goPage===6){
-        return(
-          <ReadInfo SID={this.props.SID}></ReadInfo>
-        );
-      }
-      else {
-        return(<Notice C_name={this.state.sel_course} Goback={this.handleBack}></Notice>);
-      }
-    }
 }
 
-export default Mypage;
+export default withRouter(Mypage);

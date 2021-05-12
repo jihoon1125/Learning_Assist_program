@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import './App.css';
 import Gradeinfo from './gradeinfo';
+import { withRouter } from "react-router-dom";
 import Mypage from './Mypage';
-import NoGradeInfo from './noGradeInfo';
+
 const axios = require('axios');
 class ViewGrade extends Component{
   constructor(props){
@@ -17,7 +18,6 @@ class ViewGrade extends Component{
       gradeInfo: [],
       cnt:0,
       goPage:0
-      
     }
    
   }
@@ -43,8 +43,7 @@ class ViewGrade extends Component{
             totalCredit: 0,
             Avgmajor: 0,
             AvgGyo: 0,
-            Avgtotal: 0,
-            goPage: 2
+            Avgtotal: 0
           });
         }
        
@@ -66,40 +65,12 @@ class ViewGrade extends Component{
           }
   
       }
-      
       }.bind(this));
     
   }
 
     render(){
-      /*const options = {
-      legend: {
-          display: false, // label 보이기 여부
-      },
-        scales: {
-          yAxes: [{
-            ticks: { 
-              min: 0, // y축 스케일에 대한 최소값 설정
-              stepSize: 0.3, // y축 그리드 한 칸당 수치
-            }
-          }]
-        },
       
-        // false : 사용자 정의 크기에 따라 그래프 크기가 결정됨.
-        // true : 크기가 알아서 결정됨.
-      maintainAspectRatio: false 
-      }
-      const data = {
-          // 각 막대별 라벨
-          labels: ['2018-2', '2019-1', '2019-2', '2020-1', '2020-2'],
-          datasets: [
-            {
-              borderWidth: 1, // 테두리 두께
-              data: [4.4, 3.5, 2.0, 4.0, this.state.Avgtotal], // 학기 별 평점
-              backgroundColor:['#F85F73','green','#F85F73','green','#F85F73'] // 각 막대 색
-            }
-          ]
-      };*/
       var array=[];
       for(var n=0; n<this.state.cnt; n++){
         array[n] = this.state.gradeInfo[n];
@@ -255,8 +226,7 @@ class ViewGrade extends Component{
       }
 
       console.log(list1, list2);
-
-      if(this.state.goPage===0){
+      
       return(
         <div className='box2'>
           <h1 className='Header'>수강/성적 조회</h1><br />
@@ -364,24 +334,13 @@ class ViewGrade extends Component{
             {list}
           </div>
           <br /><br /><br />
-          <button className="btn2" onClick={this.handleGoback}>뒤로가기</button>
+          <button className="btn2" onClick={this.props.history.goBack}>뒤로가기</button>
            <br /><br /><br />
         </div> 
-      );
-      }
-      else if(this.state.goPage === 2){
-        return(
-          <NoGradeInfo SID={this.props.SID}></NoGradeInfo>
-        );
-      }
-      else{
-        return(
-        <div>
-          <Mypage SID={this.props.SID}></Mypage>
-        </div>
-        );
-      }
+      );      
+
+      
     }
   }
 
-export default ViewGrade;
+export default withRouter(ViewGrade);
